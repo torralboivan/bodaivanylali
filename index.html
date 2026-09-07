@@ -109,6 +109,9 @@
   .faq{padding:1.1rem 0;border-top:1px solid var(--line);max-width:70ch}
   .faq b.q{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem;color:var(--accent)}
   .faq p b{font-family:var(--body);font-weight:600;font-size:inherit;color:var(--ink);display:inline}
+  .faq p a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  .fact dd a.go{display:inline-block;margin-top:.45rem;font-size:.82rem;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.1rem}
+  .fact dd a.go:hover{border-bottom-color:var(--accent)}
   .faq p{margin-top:.3rem;color:var(--muted);font-size:.96rem}
   .faq .go{
     display:inline-block;margin-top:.5rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
@@ -124,6 +127,35 @@
   .rail-row:first-child{border-top:none}
   .rail-row b{font-family:var(--display);font-size:1.05rem;font-weight:400;color:var(--accent)}
   .rail-row p{color:var(--muted);font-size:.96rem}
+
+  /* slider */
+  .slider{margin-bottom:1.4rem}
+  .track{
+    display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;
+    scrollbar-width:none;-ms-overflow-style:none;border-radius:4px;
+  }
+  .track::-webkit-scrollbar{display:none}
+  .track:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .slide{
+    flex:0 0 100%;scroll-snap-align:start;background:var(--surface);border-radius:4px;
+    padding:1.6rem 1.7rem 1.8rem;display:flex;flex-direction:column;gap:.55rem;
+  }
+  .slide h3{font-size:1.35rem}
+  .slide p{color:var(--muted);font-size:.96rem;max-width:52ch}
+  .slide p.joke{font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.02rem;margin-top:.2rem}
+  .slider-bar{display:flex;align-items:center;gap:.9rem;margin-top:.9rem}
+  .arrow{
+    font-family:var(--body);font-size:1.2rem;line-height:1;color:var(--muted);
+    background:var(--surface);border:1px solid var(--line);border-radius:99px;
+    width:2rem;height:2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  }
+  .arrow:hover{color:var(--ink);border-color:var(--accent)}
+  .dots{display:flex;gap:.45rem;margin-right:auto}
+  .dots button{
+    width:.5rem;height:.5rem;padding:0;border-radius:99px;border:none;cursor:pointer;
+    background:var(--line);transition:background .15s ease,transform .15s ease;
+  }
+  .dots button[aria-current="true"]{background:var(--accent);transform:scale(1.25)}
 
   /* generic panels */
   .grid{display:grid;gap:1.1rem}
@@ -177,6 +209,7 @@
   .notice{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:3px;padding:1.05rem 1.2rem;margin-top:1.4rem}
   .notice b{display:block;font-size:.82rem;letter-spacing:.03em;color:var(--gold);margin-bottom:.3rem}
   .notice p{font-size:.94rem;color:var(--muted)}
+  .notice p b{color:var(--ink);font-weight:600}
 
   /* facts */
   .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0 2.5rem}
@@ -272,27 +305,24 @@
 <body>
 <!--
   ============================================================
-  BODA IVAN & LALI - Casa Lumm, Palomino - 27/11/2026
-  "Los Pipers"
+  BODA IVAN & LALI - Casa Lumm, Palomino - 27/11/2026 - "Los Pipers"
   ============================================================
   COMO EDITAR: en GitHub abre este archivo, pulsa el lapiz, cambia el
-  texto que hay entre las etiquetas (entre un ">" y el siguiente "<")
-  y pulsa "Commit changes". En 1-2 minutos esta publicado.
+  texto entre las etiquetas (entre un ">" y el siguiente "<") y pulsa
+  "Commit changes". En 1-2 minutos esta publicado.
 
   BILINGUE: el espanol es el texto del HTML. El ingles esta al final,
-  en el bloque "var EN = {...}". Cada frase tiene una clave
-  (data-i18n="..."); cambia la linea con esa misma clave en EN.
-  El glosario English to Spanish va siempre en ingles a proposito.
+  en el bloque "var EN = {...}", con la misma clave data-i18n.
 
-  OJO: la informacion sanitaria (fiebre amarilla, dengue, zika)
-  cambia. Revisala antes de mandar la web y de nuevo cerca del viaje.
+  OJO: la informacion sanitaria y los precios de las eSIM cambian.
+  Revisalos antes de mandar la web y otra vez cerca del viaje.
 
   MARCAS UTILES (Ctrl+F):
-    [EDITAR-PREGUNTAS]  las respuestas rapidas del buscador
-    [EDITAR-GLOSARIO]   las tres listas de palabras del glosario
+    [EDITAR-PREGUNTAS]  respuestas rapidas del buscador
+    [EDITAR-GLOSARIO]   las tres listas del glosario
     [EDITAR-GRUPO]      enlace del grupo de WhatsApp
     [EDITAR-PINTEREST]  enlace del tablero de Pinterest
-    [EDITAR-WHATSAPP]   numero al que escribe el boton final
+    [EDITAR-WHATSAPP]   numero del boton final
     [EDITAR-FECHA]      hora de la ceremonia (cuenta atras)
   ============================================================
 -->
@@ -325,6 +355,12 @@
       <title id="horizonTitle" data-i18n="svgAlt">La Sierra Nevada bajando hasta el mar Caribe en Palomino</title>
       <polygon points="0,150 150,96 268,124 402,44 486,88 592,30 700,92 812,58 936,116 1064,74 1200,132 1200,150" fill="var(--accent)" opacity=".16"></polygon>
       <polyline points="0,150 150,96 268,124 402,44 486,88 592,30 700,92 812,58 936,116 1064,74 1200,132" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity=".85"></polyline>
+      <g transform="translate(886 36) scale(1)" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+        <path d="M-18 6 L-10 -3 Q-5 -7 0 -1 Q5 -7 10 -3 L18 6"></path>
+      </g>
+      <g transform="translate(962 18) scale(0.7)" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".7">
+        <path d="M-18 6 L-10 -3 Q-5 -7 0 -1 Q5 -7 10 -3 L18 6"></path>
+      </g>
       <line x1="0" y1="150" x2="1200" y2="150" stroke="var(--line)" stroke-width="1"></line>
       <path d="M0 166 q60 -8 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".45"></path>
       <path d="M0 182 q60 -8 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".3"></path>
@@ -367,22 +403,33 @@
       </div>
 
       <h3 class="sub" data-i18n="s2">Tres maneras de venir</h3>
-      <div class="grid g3">
-        <div class="panel">
-          <span class="lead" data-i18n="l1">Completo · 20–29</span>
-          <h3 data-i18n="i1t">Todo el viaje</h3>
-          <p data-i18n="i1p">Bogotá, Medellín y Palomino. Diez días, del viernes 20 al domingo 29. Es el itinerario que seguimos nosotros.</p>
+      <div class="slider">
+        <div class="track" id="ways-track" tabindex="0" aria-label="Tres maneras de venir">
+          <article class="slide">
+            <span class="lead" data-i18n="l1">Completo · 20–29</span>
+            <h3 data-i18n="i1t">Todo el viaje</h3>
+            <p data-i18n="i1p">Bogotá, Medellín y Palomino. Diez días, del viernes 20 al domingo 29. Es el itinerario que seguimos nosotros.</p>
+            <p class="joke" data-i18n="j1">Sólo apto para vividores.</p>
+          </article>
+          <article class="slide">
+            <span class="lead" data-i18n="l2">Medio · 24–29</span>
+            <h3 data-i18n="i2t">Solo Palomino</h3>
+            <p data-i18n="i2p">Llegada el martes 24 a Santa Marta y cinco noches en Naio. Te pierdes Medellín, pero llegas con tiempo de sobra y sin prisas.</p>
+            <p class="joke" data-i18n="j2">La opción sensata: te da para broncearte, no para replantearte la vida.</p>
+          </article>
+          <article class="slide">
+            <span class="lead" data-i18n="l3">Corto · 26–29</span>
+            <h3 data-i18n="i3t">Lo justo</h3>
+            <p data-i18n="i3p">Llegada el jueves 26 y tres noches: boda, asado y vuelta. La opción para quien anda apretado de días.</p>
+            <p class="joke" data-i18n="j3">Para los que no han oído hablar del jet-lag.</p>
+          </article>
         </div>
-        <div class="panel">
-          <span class="lead" data-i18n="l2">Medio · 24–29</span>
-          <h3 data-i18n="i2t">Solo Palomino</h3>
-          <p data-i18n="i2p">Llegada el martes 24 a Santa Marta y cinco noches en Naio. Te pierdes Medellín, pero llegas con tiempo de sobra y sin prisas.</p>
+        <div class="slider-bar">
+          <button type="button" class="arrow" id="ways-prev" aria-label="Anterior">&#8249;</button>
+          <div class="dots" id="ways-dots"></div>
+          <button type="button" class="arrow" id="ways-next" aria-label="Siguiente">&#8250;</button>
         </div>
-        <div class="panel">
-          <span class="lead" data-i18n="l3">Corto · 26–29</span>
-          <h3 data-i18n="i3t">Lo justo</h3>
-          <p data-i18n="i3p">Llegada el jueves 26 y tres noches: boda, asado y vuelta. La opción para quien anda apretado de días.</p>
-        </div>
+      </div>
       </div>
       <div class="notice">
         <b data-i18n="n1b">Próximamente</b>
@@ -505,7 +552,7 @@
       <dl class="facts">
         <div class="fact">
           <dt data-i18n="f1t">Check-Mig</dt>
-          <dd data-i18n="f1d">Registro migratorio online y obligatorio, tanto para entrar como para salir. Se rellena en los días previos a cada vuelo en la web de Migración Colombia. Es gratis y tarda cinco minutos: guarda el correo de confirmación y desconfía de webs que cobren por hacerlo.</dd>
+          <dd data-i18n="f1d">Registro migratorio online y obligatorio, tanto para entrar como para salir. Se rellena en los días previos a cada vuelo, tarda cinco minutos y <b>es gratis</b>: si una web te pide dinero, no es la buena. Hazlo solo en la oficial y guarda el correo de confirmación.<br><a class="go" href="https://apps.migracioncolombia.gov.co/pre-registro/" target="_blank" rel="noopener">apps.migracioncolombia.gov.co</a></dd>
         </div>
         <div class="fact">
           <dt data-i18n="f2t">Documentación</dt>
@@ -513,15 +560,11 @@
         </div>
         <div class="fact">
           <dt data-i18n="f3t">Fiebre amarilla</dt>
-          <dd data-i18n="f3d">Colombia arrastra en 2026 un brote importante, concentrado en el interior del país (Tolima, Putumayo, Nariño, Cauca, Huila, Meta). La costa donde nos casamos no está entre las zonas más golpeadas, pero la Sierra Nevada de Santa Marta —a cuyo pie está Palomino— figura como zona de riesgo. <em>Para entrar en Colombia desde España la vacuna no es obligatoria, pero sí la exigen para acceder a parques naturales como el Tayrona.</em> Es una sola dosis, protege de por vida y hay que ponerla al menos diez días antes de viajar.</dd>
+          <dd data-i18n="f3d">No es obligatoria para entrar en Colombia desde España. El brote de este año se concentra en el interior del país, y nuestro plan no pasa por zonas de selva ni de montaña. Si aun así prefieres ponértela, es una sola dosis, vale para toda la vida y se pone diez días antes de viajar.</dd>
         </div>
         <div class="fact">
           <dt data-i18n="f7t">Dengue y zika</dt>
-          <dd data-i18n="f7d">Contra estos no hay vacuna que ponerse, así que la única defensa real es el repelente. Colombia está en brote de dengue en 2026 y noviembre es temporada de lluvias en el Caribe, que es cuando más mosquito hay. Repelente de día y de noche, manga larga al atardecer y mosquitera o aire acondicionado para dormir. <em>Si estás embarazada o buscándolo, consúltalo con tu médico antes de reservar: el motivo es el zika.</em></dd>
-        </div>
-        <div class="fact">
-          <dt data-i18n="f8t">Qué hacer con esto</dt>
-          <dd data-i18n="f8d">Nada de lo de aquí sustituye a un médico. Pide cita en tu centro de vacunación internacional con margen, porque suelen ir con lista de espera, y contrata un seguro de viaje: España y Colombia no tienen convenio sanitario y una urgencia se paga.</dd>
+          <dd data-i18n="f7d">En el Caribe hay mosquitos todo el año y para estos dos no existe vacuna, así que la herramienta es el repelente: mételo en la maleta y úsalo, de día y de noche. Por dormir no te preocupes, que Naio tiene las habitaciones bien preparadas. <em>Si estás embarazada o buscándolo, coméntalo con tu médico antes de viajar: el motivo es el zika.</em></dd>
         </div>
         <div class="fact">
           <dt data-i18n="f4t">Dinero</dt>
@@ -532,8 +575,8 @@
           <dd data-i18n="f5d">Colombia funciona a 110 V con enchufe de tipo americano (clavijas planas). Trae adaptador.</dd>
         </div>
         <div class="fact">
-          <dt data-i18n="f6t">Cobertura</dt>
-          <dd data-i18n="f6d">En Palomino la señal es irregular. Descárgate los mapas sin conexión y avisa en casa de que puedes estar ilocalizable un rato.</dd>
+          <dt data-i18n="f6t">Internet</dt>
+          <dd data-i18n="f6d">Naio tiene wifi en todo el hotel, así que en Palomino vas a estar conectado. Si además quieres datos fuera, lo más cómodo es una eSIM: apps como <b>Holafly</b> o <b>Airalo</b> te la activan desde el propio móvil, sin cambiar de tarjeta. Con unos 5 € tienes datos para ir tirando, y por unos 30 € hay planes de datos ilimitados para todo el mes.</dd>
         </div>
       </dl>
     </div>
@@ -642,6 +685,11 @@
           <p class="price"><b>≈ 100 €</b> <span data-i18n="m2u">por noche</span></p>
           <div class="btns"><a class="btn ghost" href="https://www.booking.com/hotel/co/landmark.html?checkin=2026-11-21&amp;checkout=2026-11-24&amp;group_adults=2&amp;no_rooms=1" target="_blank" rel="noopener" data-i18n="m2l">Ver en Booking</a></div>
         </div>
+      </div>
+
+      <div class="notice">
+        <b data-i18n="n5b">Escapada a Guatapé</b>
+        <p data-i18n="n5p">Estamos planeando una escapada el lunes 23 a Guatapé: un embalse enorme lleno de brazos e islas, con la Piedra del Peñol asomando en medio. Vamos y volvemos en el día, así que <b>no hace falta reservar hotel allí</b>.</p>
       </div>
 
       <h3 class="sub" data-i18n="s9">Palomino · del 24 al 29 de noviembre</h3>
@@ -799,10 +847,13 @@
     s2:"Three ways to join",
     l1:"Full · 20–29", i1t:"The whole trip",
     i1p:"Bogotá, Medellín and Palomino. Ten days, Friday the 20th to Sunday the 29th. It's the itinerary we're doing ourselves.",
+    j1:"Strictly for people with real vacation days and no shame about using them.",
     l2:"Medium · 24–29", i2t:"Palomino only",
     i2p:"Arrive in Santa Marta on Tuesday the 24th and five nights at Naio. You miss Medellín, but you arrive with plenty of time and no rush.",
+    j2:"The grown-up option: long enough for a tan, not long enough to start looking at real estate.",
     l3:"Short · 26–29", i3t:"Just the essentials",
     i3p:"Arrive on Thursday the 26th, three nights: wedding, asado and home. The option if you're tight on days.",
+    j3:"For people who don’t believe in jet lag.",
     n1b:"Coming soon",
     n1p:"Day-by-day suggested activities will be sent later through the WhatsApp group.",
 
@@ -821,6 +872,8 @@
     k3:"Where to stay",
     h3b:"Where to sleep",
     p3b:"The trip has two overnight stops: Medellín at the start and Palomino for the wedding days. Medellín is up to each of you; Palomino we take care of.",
+    n5b:"Day trip to Guatapé",
+    n5p:"We are planning a day out on Monday the 23rd to Guatapé: a huge reservoir full of inlets and islands, with the Piedra del Peñol rising out of the middle of it. We go and come back the same day, so <b>there is no need to book a hotel there</b>.",
     s9:"Palomino · 24–29 November",
     p3:"This is where we all stay together, at the <b>Naio Hotel &amp; Villas</b>, right on the seafront. If you have any questions about your booking, write to us and we'll help.",
 
@@ -877,21 +930,19 @@
     q8:"Light rain jacket", q9:"Cash for expenses",
     s6:"Before you leave home",
     f1t:"Check-Mig",
-    f1d:"A compulsory online immigration registration, both entering and leaving. You fill it in during the days before each flight on the Migración Colombia website. It's free and takes five minutes: keep the confirmation email, and be wary of sites that charge for it.",
+    f1d:"A compulsory online immigration registration, both entering and leaving. You fill it in during the days before each flight, it takes five minutes and <b>it is free</b>: if a site asks you for money, it is not the right one. Use only the official one and keep the confirmation email.<br><a class=\"go\" href=\"https://apps.migracioncolombia.gov.co/pre-registro/\" target=\"_blank\" rel=\"noopener\">apps.migracioncolombia.gov.co</a>",
     f2t:"Documents",
     f2d:"A valid passport with comfortable validity left. Spanish citizens don't need a visa for a tourist stay; you may be asked for an onward ticket and proof of accommodation. <em>Check your own case if you hold another nationality.</em>",
     f3t:"Yellow fever",
-    f3d:"Colombia has had a significant outbreak through 2026, concentrated inland (Tolima, Putumayo, Nariño, Cauca, Huila, Meta). The coast where we are getting married is not among the worst-hit areas, but the Sierra Nevada de Santa Marta — at whose foot Palomino sits — is listed as a risk zone. <em>The vaccine is not required to enter Colombia from Spain, but it is required to enter national parks such as Tayrona.</em> It is a single dose, protects for life, and must be given at least ten days before you travel.",
+    f3d:"It is not required to enter Colombia from Spain. This year’s outbreak is concentrated inland, and our plan does not take us into jungle or mountain areas. If you would rather have it anyway, it is a single dose, good for life, given ten days before you travel.",
     f7t:"Dengue and zika",
-    f7d:"There is no vaccine you can take for these, so repellent is the only real defence. Colombia is in a dengue outbreak in 2026, and November is the rainy season on the Caribbean coast, when mosquitoes are at their worst. Repellent day and night, long sleeves at dusk, and a net or air conditioning to sleep. <em>If you are pregnant or trying, talk to your doctor before booking: the reason is zika.</em>",
-    f8t:"What to do about all this",
-    f8d:"None of this replaces a doctor. Book an appointment at a travel health clinic with time to spare — they tend to have waiting lists — and take out travel insurance: Spain and Colombia have no reciprocal health agreement and an emergency is paid out of pocket.",
+    f7d:"There are mosquitoes on the Caribbean coast all year round and neither of these has a vaccine, so repellent is the tool: pack it and use it, day and night. Don’t worry about the nights — the rooms at Naio are well set up for it. <em>If you are pregnant or trying, mention it to your doctor before you travel: the reason is zika.</em>",
     f4t:"Money",
     f4d:"Colombian peso (COP). Palomino has few ATMs and many places are cash only: withdraw pesos at the airport or in Santa Marta on the way up.",
     f5t:"Plugs",
     f5d:"Colombia runs on 110 V with US-type plugs (flat pins). Bring an adapter.",
-    f6t:"Signal",
-    f6d:"Coverage in Palomino is patchy. Download offline maps and warn people at home that you may be unreachable for a while.",
+    f6t:"Internet",
+    f6d:"Naio has wifi throughout the hotel, so you will be online in Palomino. If you also want data out and about, the easiest option is an eSIM: apps like <b>Holafly</b> or <b>Airalo</b> activate it from your phone, with no card to swap. Around €5 gets you enough data to get by, and about €30 buys unlimited data for the whole month.",
 
     k8:"Glossary",
     h8:"Emergency dictionary",
@@ -1017,12 +1068,12 @@
      qe:"Do I need a visa?", ae:"Spanish citizens do not need a visa for a tourist stay; a valid passport is enough. If you hold another nationality, check your own case."},
 
     {q:"¿Qué es el Check-Mig?", k:"checkmig check mig migracion registro tramite",
-     a:"Un registro migratorio online y obligatorio, para entrar y para salir del país. Se hace en los días previos a cada vuelo, es gratis y tarda cinco minutos.", to:"#colombia",
-     qe:"What is Check-Mig?", ae:"A compulsory online immigration registration, both entering and leaving the country. You do it in the days before each flight; it is free and takes five minutes."},
+     a:"Un registro migratorio online y obligatorio, para entrar y para salir del país. Se hace en los días previos a cada vuelo, tarda cinco minutos y es <b>gratis</b>: solo en <a href=\"https://apps.migracioncolombia.gov.co/pre-registro/\" target=\"_blank\" rel=\"noopener\">apps.migracioncolombia.gov.co</a>. Si una web te cobra, no es la oficial.", to:"#colombia",
+     qe:"What is Check-Mig?", ae:"A compulsory online immigration registration, both entering and leaving the country. You do it in the days before each flight; it takes five minutes and it is <b>free</b>, only at <a href=\"https://apps.migracioncolombia.gov.co/pre-registro/\" target=\"_blank\" rel=\"noopener\">apps.migracioncolombia.gov.co</a>. If a site charges you, it is not the official one."},
 
     {q:"¿Necesito vacunas?", k:"vacuna vacunas fiebre amarilla dengue zika mosquitos brote salud seguro medico repelente",
-     a:"<b>Ninguna es obligatoria para entrar en Colombia desde España.</b> Pero en 2026 hay brote de fiebre amarilla y de dengue, y la Sierra Nevada, justo al lado de Palomino, es zona de riesgo de fiebre amarilla. Esa vacuna es una sola dosis, vale de por vida, hay que ponerla diez días antes y te la piden para entrar al Tayrona. Contra el dengue y el zika no hay vacuna: repelente. Consúltalo en tu centro de vacunación internacional.", to:"#colombia",
-     qe:"Do I need vaccinations?", ae:"<b>None are required to enter Colombia from Spain.</b> But in 2026 there are yellow fever and dengue outbreaks, and the Sierra Nevada, right next to Palomino, is a yellow fever risk zone. That vaccine is a single dose, lasts for life, must be given ten days ahead, and is required to enter Tayrona park. There is no vaccine for dengue or zika: repellent is the answer. Check with a travel health clinic."},
+     a:"<b>Ninguna es obligatoria para entrar en Colombia desde España.</b> El brote de fiebre amarilla de este año está en el interior y nuestro plan no pasa por ahí; si prefieres ponértela igual, es una dosis, para toda la vida, diez días antes. Contra el dengue y el zika no hay vacuna: lo que funciona es el repelente, así que llévalo. Consúltalo en tu centro de vacunación internacional.", to:"#colombia",
+     qe:"Do I need vaccinations?", ae:"<b>None are required to enter Colombia from Spain.</b> This year’s yellow fever outbreak is inland and our plan does not go there; if you would rather have the vaccine anyway, it is one dose, for life, ten days ahead. There is no vaccine for dengue or zika: repellent is what works, so bring some. Check with a travel health clinic."},
 
     {q:"¿Qué tiempo va a hacer?", k:"tiempo clima calor temperatura lluvia humedad",
      a:"En Palomino, entre 28 y 35 °C con cerca de un 80 % de humedad. Bogotá es fresco (6–19 °C) y Medellín templado (17–27 °C).", to:"#colombia",
@@ -1036,14 +1087,48 @@
      a:"Tienes una lista con casillas para ir marcando mientras haces la maleta. Lo imprescindible: repelente, protector solar, chubasquero fino, efectivo y adaptador de enchufe americano (Colombia va a 110 V).", to:"#colombia",
      qe:"What do I pack?", ae:"There is a checklist you can tick off as you pack. The essentials: insect repellent, sunscreen, a light rain jacket, cash and a US-type plug adapter (Colombia runs on 110 V)."},
 
-    {q:"¿Hay wifi y cobertura?", k:"wifi internet cobertura movil telefono señal",
-     a:"En Palomino la señal es irregular y algunos sitios van con wifi limitado. Descárgate los mapas sin conexión y avisa en casa de que puedes estar ilocalizable un rato.", to:"#colombia",
-     qe:"Is there wifi and phone signal?", ae:"In Palomino the signal is patchy and some places have limited wifi. Download offline maps and warn people at home that you may be unreachable for a while."},
+    {q:"¿Hay wifi?", k:"wifi internet cobertura movil telefono señal esim datos holafly airalo",
+     a:"Naio tiene wifi en todo el hotel. Si además quieres datos fuera, una eSIM de <b>Holafly</b> o <b>Airalo</b> se activa desde el móvil: desde unos 5 €, o unos 30 € por un mes de datos ilimitados.", to:"#colombia",
+     qe:"Is there wifi?", ae:"Naio has wifi throughout the hotel. If you also want data out and about, a <b>Holafly</b> or <b>Airalo</b> eSIM activates from your phone: from around €5, or about €30 for a month of unlimited data."},
 
     {q:"¿Cómo os aviso o pregunto algo?", k:"contacto whatsapp confirmar rsvp avisar telefono dudas",
      a:"Escríbenos por WhatsApp a Iván o a Laura. Preferimos que preguntes a que te quedes con la duda.", to:"#contacto",
      qe:"How do I reach you?", ae:"Message Iván or Laura on WhatsApp. We would much rather you asked than wondered."}
   ];
+
+  // ---- Slider de "tres maneras de venir" ----
+  var wTrack = document.getElementById("ways-track");
+  var wDots = document.getElementById("ways-dots");
+  if (wTrack) {
+    var wSlides = wTrack.querySelectorAll(".slide");
+    var wSmooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    wSlides.forEach(function(_, i){
+      var d = document.createElement("button");
+      d.type = "button";
+      d.setAttribute("aria-label", "Ver opción " + (i + 1));
+      d.addEventListener("click", function(){ wGo(i); });
+      wDots.appendChild(d);
+    });
+    var wDotEls = wDots.querySelectorAll("button");
+
+    function wIndex(){
+      return Math.round(wTrack.scrollLeft / wTrack.clientWidth);
+    }
+    function wGo(i){
+      i = Math.max(0, Math.min(wSlides.length - 1, i));
+      wTrack.scrollTo({ left: i * wTrack.clientWidth, behavior: wSmooth ? "smooth" : "auto" });
+    }
+    function wMark(){
+      var n = wIndex();
+      wDotEls.forEach(function(d, i){ d.setAttribute("aria-current", String(i === n)); });
+    }
+    wTrack.addEventListener("scroll", wMark, { passive: true });
+    window.addEventListener("resize", wMark);
+    document.getElementById("ways-prev").addEventListener("click", function(){ wGo(wIndex() - 1); });
+    document.getElementById("ways-next").addEventListener("click", function(){ wGo(wIndex() + 1); });
+    wMark();
+  }
 
   var WA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>';
   var askQ = document.getElementById("ask-q");
