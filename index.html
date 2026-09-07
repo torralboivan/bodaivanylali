@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="description" content="Boda de Ivan y Lali: viernes 27 de noviembre de 2026 en Casa Lumm, Palomino (La Guajira, Colombia). Itinerario del viaje, glosario, guia de Colombia, vuelos, alojamiento y codigo de vestimenta.">
+<meta name="description" content="Boda de Ivan y Lali: viernes 27 de noviembre de 2026 en Casa Lumm, Palomino (La Guajira, Colombia). Itinerario, respuestas rapidas, glosario, guia de Colombia, vuelos y alojamiento.">
 <meta name="theme-color" content="#F1F3EC">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ivan & Lali en Palomino">
@@ -91,6 +91,32 @@
   .head p{margin-top:.95rem;color:var(--muted);max-width:62ch}
   h3.sub{font-size:1.25rem;margin:2.4rem 0 1rem}
   h3.sub:first-child{margin-top:0}
+
+  /* respuestas rápidas */
+  .ask-tools{margin-bottom:1rem}
+  .ask-tools input{
+    width:min(100%,32rem);font-family:var(--body);font-size:1rem;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:.85rem 1.4rem;
+  }
+  .ask-tools input::placeholder{color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
+  .chips button{
+    font-family:var(--body);font-size:.8rem;color:var(--muted);background:none;
+    border:1px solid var(--line);border-radius:99px;padding:.4rem .9rem;cursor:pointer;
+  }
+  .chips button:hover{color:var(--ink);border-color:var(--accent)}
+  .faq-list{display:grid;gap:0}
+  .faq{padding:1.1rem 0;border-top:1px solid var(--line);max-width:70ch}
+  .faq b.q{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem;color:var(--accent)}
+  .faq p b{font-family:var(--body);font-weight:600;font-size:inherit;color:var(--ink);display:inline}
+  .faq p{margin-top:.3rem;color:var(--muted);font-size:.96rem}
+  .faq .go{
+    display:inline-block;margin-top:.5rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.15rem;
+  }
+  .faq .go:hover{border-bottom-color:var(--accent)}
+  .faq-none{padding:1.3rem 0;border-top:1px solid var(--line)}
+  .faq-none p{color:var(--muted);font-size:.96rem;max-width:60ch}
 
   /* itinerary rail */
   .rail{display:grid;gap:0;margin-bottom:2.4rem}
@@ -258,7 +284,11 @@
   (data-i18n="..."); cambia la linea con esa misma clave en EN.
   El glosario English to Spanish va siempre en ingles a proposito.
 
+  OJO: la informacion sanitaria (fiebre amarilla, dengue, zika)
+  cambia. Revisala antes de mandar la web y de nuevo cerca del viaje.
+
   MARCAS UTILES (Ctrl+F):
+    [EDITAR-PREGUNTAS]  las respuestas rapidas del buscador
     [EDITAR-GLOSARIO]   las tres listas de palabras del glosario
     [EDITAR-GRUPO]      enlace del grupo de WhatsApp
     [EDITAR-PINTEREST]  enlace del tablero de Pinterest
@@ -358,6 +388,23 @@
         <b data-i18n="n1b">Próximamente</b>
         <p data-i18n="n1p">Los detalles de las actividades sugeridas día a día se enviarán más adelante por el grupo de WhatsApp.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- AYUDA -->
+  <section id="ayuda">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-i18n="kA">Respuestas rápidas</span>
+        <h2 data-i18n="hA">Pregunta lo que quieras</h2>
+        <p data-i18n="pA">Escribe tu duda como se te ocurra —“¿qué me pongo?”, “¿necesito visado?”, “resumen”— y te llevamos a la respuesta. Si no está aquí, escríbenos y te contestamos nosotros.</p>
+      </div>
+
+      <div class="ask-tools">
+        <input type="search" id="ask-q" data-i18n-ph="askPh" placeholder="¿Qué quieres saber?" aria-label="Buscar una respuesta">
+      </div>
+      <div class="chips" id="ask-chips"></div>
+      <div class="faq-list" id="ask-out"></div>
     </div>
   </section>
 
@@ -465,8 +512,16 @@
           <dd data-i18n="f2d">Pasaporte en vigor con margen holgado de validez. Los ciudadanos españoles no necesitan visado para una estancia turística; pueden pedirte billete de salida y prueba de alojamiento. <em>Comprueba tu caso si tienes otra nacionalidad.</em></dd>
         </div>
         <div class="fact">
-          <dt data-i18n="f3t">Salud</dt>
-          <dd data-i18n="f3d">No hay vacunas obligatorias para entrar, pero para la costa Caribe suele recomendarse la de la fiebre amarilla, que se pone con al menos diez días de antelación. Consúltalo en tu centro de vacunación internacional y contrata un seguro de viaje.</dd>
+          <dt data-i18n="f3t">Fiebre amarilla</dt>
+          <dd data-i18n="f3d">Colombia arrastra en 2026 un brote importante, concentrado en el interior del país (Tolima, Putumayo, Nariño, Cauca, Huila, Meta). La costa donde nos casamos no está entre las zonas más golpeadas, pero la Sierra Nevada de Santa Marta —a cuyo pie está Palomino— figura como zona de riesgo. <em>Para entrar en Colombia desde España la vacuna no es obligatoria, pero sí la exigen para acceder a parques naturales como el Tayrona.</em> Es una sola dosis, protege de por vida y hay que ponerla al menos diez días antes de viajar.</dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f7t">Dengue y zika</dt>
+          <dd data-i18n="f7d">Contra estos no hay vacuna que ponerse, así que la única defensa real es el repelente. Colombia está en brote de dengue en 2026 y noviembre es temporada de lluvias en el Caribe, que es cuando más mosquito hay. Repelente de día y de noche, manga larga al atardecer y mosquitera o aire acondicionado para dormir. <em>Si estás embarazada o buscándolo, consúltalo con tu médico antes de reservar: el motivo es el zika.</em></dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f8t">Qué hacer con esto</dt>
+          <dd data-i18n="f8d">Nada de lo de aquí sustituye a un médico. Pide cita en tu centro de vacunación internacional con margen, porque suelen ir con lista de espera, y contrata un seguro de viaje: España y Colombia no tienen convenio sanitario y una urgencia se paga.</dd>
         </div>
         <div class="fact">
           <dt data-i18n="f4t">Dinero</dt>
@@ -551,9 +606,10 @@
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-i18n="k3">Alojamiento</span>
-        <h2>Naio Hotel &amp; Villas</h2>
-        <p data-i18n="p3">Es donde nos alojamos todos, frente al mar en Palomino. Si tienes cualquier duda con tu reserva, escríbenos y te ayudamos.</p>
+        <h2 data-i18n="h3b">Dónde dormir</h2>
+        <p data-i18n="p3b">El viaje tiene dos paradas con noches: Medellín al principio y Palomino los días de la boda. La de Medellín la organiza cada uno; la de Palomino la llevamos nosotros.</p>
       </div>
+
       <h3 class="sub" data-i18n="s8">Medellín · del 21 al 24 de noviembre</h3>
       <p class="pack-note" data-i18n="p9">Para la parte de Medellín cada uno reserva por su cuenta. Os proponemos estos cuatro, todos en <b>El Poblado</b>, que es la zona más segura y por donde se mueve el turismo. Van del más barato al más caro; los precios son aproximados, por habitación y noche para dos personas, y los enlaces ya llevan puestas las fechas del grupo.</p>
       <div class="grid g2">
@@ -587,6 +643,9 @@
           <div class="btns"><a class="btn ghost" href="https://www.booking.com/hotel/co/landmark.html?checkin=2026-11-21&amp;checkout=2026-11-24&amp;group_adults=2&amp;no_rooms=1" target="_blank" rel="noopener" data-i18n="m2l">Ver en Booking</a></div>
         </div>
       </div>
+
+      <h3 class="sub" data-i18n="s9">Palomino · del 24 al 29 de noviembre</h3>
+      <p class="pack-note" data-i18n="p3">Aquí nos alojamos todos juntos, en el <b>Naio Hotel &amp; Villas</b>, frente al mar. Si tienes cualquier duda con tu reserva, escríbenos y te ayudamos.</p>
     </div>
   </section>
 
@@ -693,7 +752,10 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>
           <span data-i18n="btn">Escribir a Iván</span>
         </a>
-        <a class="btn ghost" href="https://wa.me/34617522337" target="_blank" rel="noopener" data-i18n="btn2">Escribir a Laura</a>
+        <a class="btn ghost" href="https://wa.me/34617522337" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>
+          <span data-i18n="btn2">Escribir a Laura</span>
+        </a>
       </div>
       <p class="note" data-i18n="note">Boda: viernes 27 de noviembre de 2026 · Casa Lumm, Palomino</p>
     </div>
@@ -717,6 +779,11 @@
     svgAlt:"The Sierra Nevada running down to the Caribbean Sea at Palomino",
     cdD:"Days", cdH:"Hours", cdM:"Minutes", cdS:"Seconds",
     leg1:"Bogotá", leg2:"Medellín", leg3:"Palomino",
+
+    kA:"Quick answers",
+    hA:"Ask anything",
+    pA:"Type your question however it comes out — “what should I wear?”, “do I need a visa?”, “summary” — and we will take you to the answer. If it is not here, write to us and we will reply ourselves.",
+    askPh:"What do you want to know?",
 
     k1:"The trip", h1:"Ten days from Bogotá to La Guajira",
     p1:"The wedding is on Friday 27 November at Casa Lumm, Palomino, with the ceremony on the beach. Around it we've put together a group trip through Colombia, and three ways to join depending on how many days you have.",
@@ -752,7 +819,10 @@
     n2p:"We're arranging shared transport from Santa Marta airport to Naio, in Palomino, for anyone on the recommended flights. If you land at a different time, tell us and we'll coordinate it or suggest the best option.",
 
     k3:"Where to stay",
-    p3:"It's where we're all staying, right on the seafront in Palomino. If you have any questions about your booking, write to us and we'll help.",
+    h3b:"Where to sleep",
+    p3b:"The trip has two overnight stops: Medellín at the start and Palomino for the wedding days. Medellín is up to each of you; Palomino we take care of.",
+    s9:"Palomino · 24–29 November",
+    p3:"This is where we all stay together, at the <b>Naio Hotel &amp; Villas</b>, right on the seafront. If you have any questions about your booking, write to us and we'll help.",
 
     s8:"Medellín · 21–24 November",
     p9:"For the Medellín leg everyone books their own room. We suggest these four, all in <b>El Poblado</b>, the safest area and where visitors tend to stay. They run cheapest to priciest; prices are approximate, per room per night for two, and the links already carry the group’s dates.",
@@ -810,8 +880,12 @@
     f1d:"A compulsory online immigration registration, both entering and leaving. You fill it in during the days before each flight on the Migración Colombia website. It's free and takes five minutes: keep the confirmation email, and be wary of sites that charge for it.",
     f2t:"Documents",
     f2d:"A valid passport with comfortable validity left. Spanish citizens don't need a visa for a tourist stay; you may be asked for an onward ticket and proof of accommodation. <em>Check your own case if you hold another nationality.</em>",
-    f3t:"Health",
-    f3d:"No vaccines are required to enter, but yellow fever is usually recommended for the Caribbean coast, and it needs at least ten days' notice. Check with a travel health clinic and take out travel insurance.",
+    f3t:"Yellow fever",
+    f3d:"Colombia has had a significant outbreak through 2026, concentrated inland (Tolima, Putumayo, Nariño, Cauca, Huila, Meta). The coast where we are getting married is not among the worst-hit areas, but the Sierra Nevada de Santa Marta — at whose foot Palomino sits — is listed as a risk zone. <em>The vaccine is not required to enter Colombia from Spain, but it is required to enter national parks such as Tayrona.</em> It is a single dose, protects for life, and must be given at least ten days before you travel.",
+    f7t:"Dengue and zika",
+    f7d:"There is no vaccine you can take for these, so repellent is the only real defence. Colombia is in a dengue outbreak in 2026, and November is the rainy season on the Caribbean coast, when mosquitoes are at their worst. Repellent day and night, long sleeves at dusk, and a net or air conditioning to sleep. <em>If you are pregnant or trying, talk to your doctor before booking: the reason is zika.</em>",
+    f8t:"What to do about all this",
+    f8d:"None of this replaces a doctor. Book an appointment at a travel health clinic with time to spare — they tend to have waiting lists — and take out travel insurance: Spain and Colombia have no reciprocal health agreement and an emergency is paid out of pocket.",
     f4t:"Money",
     f4d:"Colombian peso (COP). Palomino has few ATMs and many places are cash only: withdraw pesos at the airport or in Santa Marta on the way up.",
     f5t:"Plugs",
@@ -870,6 +944,8 @@
     try { localStorage.setItem("boda-lang", lang); } catch(e){}
     renderGlos();
     packCount();
+    renderChips();
+    renderAsk();
   }
   buttons.forEach(function(b){
     b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
@@ -878,6 +954,174 @@
   try { saved = localStorage.getItem("boda-lang"); } catch(e){}
   if (saved === "en") setLang("en");
 
+
+  // ---- Respuestas rápidas -------------------------------------------------
+  // [EDITAR-PREGUNTAS] q/a = pregunta y respuesta en español · qe/ae = en inglés
+  // k = palabras sueltas que también deben encontrar esta respuesta
+  // to = sección a la que enlaza (opcional)
+  var FAQ = [
+    {q:"Resumen de todo", k:"resumen todo summary rapido",
+     a:"Nos casamos el <b>viernes 27 de noviembre de 2026</b> en Casa Lumm, Palomino (La Guajira, Colombia), con ceremonia en la playa. El sábado 28 hay asado. Alrededor montamos un viaje de grupo: Bogotá el 20, Medellín del 21 al 24 y Palomino del 24 al 29. Dress code: un solo color, sin estampados.", to:"#viaje",
+     qe:"Give me the summary", ae:"We are getting married on <b>Friday 27 November 2026</b> at Casa Lumm, Palomino (La Guajira, Colombia), with the ceremony on the beach. There is an asado on Saturday the 28th. Around it there is a group trip: Bogotá on the 20th, Medellín 21–24 and Palomino 24–29. Dress code: one single colour, no prints."},
+
+    {q:"¿Cuándo y dónde es la boda?", k:"fecha dia lugar donde cuando sitio casa lumm palomino",
+     a:"El viernes 27 de noviembre de 2026, en <b>Casa Lumm</b>, Palomino, La Guajira. La ceremonia es en la playa.", to:"#viaje",
+     qe:"When and where is the wedding?", ae:"Friday 27 November 2026, at <b>Casa Lumm</b>, Palomino, La Guajira. The ceremony is on the beach."},
+
+    {q:"¿A qué hora es la ceremonia?", k:"hora horario empieza puntualidad",
+     a:"Todavía está por confirmar. En cuanto la tengamos la avisamos por el grupo de WhatsApp y la actualizamos aquí.", to:"#viaje",
+     qe:"What time is the ceremony?", ae:"Still to be confirmed. As soon as we have it we will announce it in the WhatsApp group and update it here."},
+
+    {q:"¿Qué me pongo?", k:"vestimenta dress code ropa vestido traje camisa colores",
+     a:"Un solo color por persona y sin estampados. <b>Ellas</b>, vestido en color vivo; blanco, beige y azul están reservados. <b>Ellos</b>, pantalón claro y camisa de un color; el verde está reservado.", to:"#vestimenta",
+     qe:"What should I wear?", ae:"One single colour per person, no prints. <b>Women</b>: a dress in a bright colour; white, beige and blue are reserved. <b>Men</b>: light trousers and a single-colour shirt; green is reserved."},
+
+    {q:"¿Puedo ir de blanco o de azul?", k:"blanco azul beige verde prohibido reservado permitido",
+     a:"Para ellas no: blanco, beige y azul están reservados. Para ellos el reservado es el verde; los azules sí valen.", to:"#vestimenta",
+     qe:"Can I wear white or blue?", ae:"Not for women: white, beige and blue are reserved. For men the reserved colour is green; blues are fine."},
+
+    {q:"¿Qué zapatos llevo?", k:"zapatos calzado tacon sandalias arena playa",
+     a:"La ceremonia es en la arena, así que calzado cómodo y plano. El tacón fino se hunde y no vas a durar diez minutos.", to:"#vestimenta",
+     qe:"What shoes should I bring?", ae:"The ceremony is on sand, so bring comfortable flat shoes. Thin heels sink and will not last ten minutes."},
+
+    {q:"¿Cómo llego a Palomino?", k:"llegar como viaje avion vuelo aeropuerto santa marta carretera",
+     a:"Se vuela a Santa Marta (normalmente Madrid → Bogotá → Santa Marta) y desde allí son unos 90 km por carretera, entre hora y media y dos horas.", to:"#vuelos",
+     qe:"How do I get to Palomino?", ae:"You fly to Santa Marta (usually Madrid → Bogotá → Santa Marta) and from there it is about 90 km by road, an hour and a half to two hours."},
+
+    {q:"¿Qué vuelos me cojo?", k:"vuelos billetes iberia avianca jetsmart precio tarifa",
+     a:"Tenemos cuatro recomendados que cuadran entre sí y con el transporte de grupo, con horarios y tarifas aproximadas.", to:"#vuelos",
+     qe:"Which flights should I book?", ae:"We recommend four that connect with each other and with the group transport, with times and approximate fares."},
+
+    {q:"¿Hay transporte desde el aeropuerto?", k:"transporte traslado bus taxi aeropuerto grupo recogida",
+     a:"Sí. Organizamos transporte conjunto desde el aeropuerto de Santa Marta hasta Naio para quienes viajen en los vuelos recomendados. Si llegas a otra hora, avísanos.", to:"#vuelos",
+     qe:"Is there transport from the airport?", ae:"Yes. We are arranging shared transport from Santa Marta airport to Naio for anyone on the recommended flights. If you land at a different time, tell us."},
+
+    {q:"¿Dónde me alojo?", k:"hotel alojamiento dormir naio medellin poblado habitacion",
+     a:"En Palomino nos alojamos todos en el <b>Naio Hotel &amp; Villas</b>. En Medellín reserva cada uno: proponemos cuatro hoteles, todos en El Poblado.", to:"#naio",
+     qe:"Where do I stay?", ae:"In Palomino we all stay at the <b>Naio Hotel &amp; Villas</b>. In Medellín everyone books their own: we suggest four hotels, all in El Poblado."},
+
+    {q:"¿Cuánto cuesta el hotel de Medellín?", k:"precio cuesta cuanto hotel medellin euros noche",
+     a:"Entre 50 y 100 € por habitación y noche, según el hotel. Están ordenados de más barato a más caro y cada uno enlaza a Booking con las fechas puestas.", to:"#naio",
+     qe:"How much are the Medellín hotels?", ae:"Between €50 and €100 per room per night depending on the hotel. They are listed cheapest first and each links to Booking with the dates already set."},
+
+    {q:"¿Cuántos días dura el viaje?", k:"dias duracion cuanto itinerario opciones fechas",
+     a:"El viaje completo va del 20 al 29 de noviembre, pero hay tres formas de sumarse: completo (20–29), medio (24–29) o corto (26–29).", to:"#viaje",
+     qe:"How many days is the trip?", ae:"The full trip runs 20–29 November, but there are three ways to join: full (20–29), medium (24–29) or short (26–29)."},
+
+    {q:"¿Qué es el desenguayabe?", k:"desenguayabe asado sabado 28 resaca guayabo",
+     a:"El asado del sábado 28 en Casa Lumm. <i>Guayabo</i> es resaca en colombiano, así que el desenguayabe es el plan para curarla. Informal: bañador y chanclas.", to:"#glosario",
+     qe:"What is the desenguayabe?", ae:"The asado on Saturday the 28th at Casa Lumm. <i>Guayabo</i> is Colombian for hangover, so the desenguayabe is the plan to cure it. Casual: swimwear and flip-flops."},
+
+    {q:"¿Necesito visado?", k:"visado visa pasaporte documentacion entrar requisitos",
+     a:"Los ciudadanos españoles no necesitan visado para una estancia turística; basta el pasaporte en vigor. Si tienes otra nacionalidad, compruébalo por tu cuenta.", to:"#colombia",
+     qe:"Do I need a visa?", ae:"Spanish citizens do not need a visa for a tourist stay; a valid passport is enough. If you hold another nationality, check your own case."},
+
+    {q:"¿Qué es el Check-Mig?", k:"checkmig check mig migracion registro tramite",
+     a:"Un registro migratorio online y obligatorio, para entrar y para salir del país. Se hace en los días previos a cada vuelo, es gratis y tarda cinco minutos.", to:"#colombia",
+     qe:"What is Check-Mig?", ae:"A compulsory online immigration registration, both entering and leaving the country. You do it in the days before each flight; it is free and takes five minutes."},
+
+    {q:"¿Necesito vacunas?", k:"vacuna vacunas fiebre amarilla dengue zika mosquitos brote salud seguro medico repelente",
+     a:"<b>Ninguna es obligatoria para entrar en Colombia desde España.</b> Pero en 2026 hay brote de fiebre amarilla y de dengue, y la Sierra Nevada, justo al lado de Palomino, es zona de riesgo de fiebre amarilla. Esa vacuna es una sola dosis, vale de por vida, hay que ponerla diez días antes y te la piden para entrar al Tayrona. Contra el dengue y el zika no hay vacuna: repelente. Consúltalo en tu centro de vacunación internacional.", to:"#colombia",
+     qe:"Do I need vaccinations?", ae:"<b>None are required to enter Colombia from Spain.</b> But in 2026 there are yellow fever and dengue outbreaks, and the Sierra Nevada, right next to Palomino, is a yellow fever risk zone. That vaccine is a single dose, lasts for life, must be given ten days ahead, and is required to enter Tayrona park. There is no vaccine for dengue or zika: repellent is the answer. Check with a travel health clinic."},
+
+    {q:"¿Qué tiempo va a hacer?", k:"tiempo clima calor temperatura lluvia humedad",
+     a:"En Palomino, entre 28 y 35 °C con cerca de un 80 % de humedad. Bogotá es fresco (6–19 °C) y Medellín templado (17–27 °C).", to:"#colombia",
+     qe:"What will the weather be like?", ae:"In Palomino, 28–35 °C with around 80% humidity. Bogotá is cool (6–19 °C) and Medellín mild (17–27 °C)."},
+
+    {q:"¿Llevo efectivo o tarjeta?", k:"dinero efectivo tarjeta pesos cajero pagar moneda",
+     a:"En Bogotá y Medellín se paga con tarjeta sin problema. En Palomino, mejor efectivo: hay pocos cajeros y fuera del hotel es difícil pagar con tarjeta.", to:"#colombia",
+     qe:"Cash or card?", ae:"In Bogotá and Medellín cards work fine. In Palomino bring cash: there are few ATMs and outside the hotel card payment is hard."},
+
+    {q:"¿Qué meto en la maleta?", k:"maleta equipaje llevar ropa repelente enchufe adaptador",
+     a:"Tienes una lista con casillas para ir marcando mientras haces la maleta. Lo imprescindible: repelente, protector solar, chubasquero fino, efectivo y adaptador de enchufe americano (Colombia va a 110 V).", to:"#colombia",
+     qe:"What do I pack?", ae:"There is a checklist you can tick off as you pack. The essentials: insect repellent, sunscreen, a light rain jacket, cash and a US-type plug adapter (Colombia runs on 110 V)."},
+
+    {q:"¿Hay wifi y cobertura?", k:"wifi internet cobertura movil telefono señal",
+     a:"En Palomino la señal es irregular y algunos sitios van con wifi limitado. Descárgate los mapas sin conexión y avisa en casa de que puedes estar ilocalizable un rato.", to:"#colombia",
+     qe:"Is there wifi and phone signal?", ae:"In Palomino the signal is patchy and some places have limited wifi. Download offline maps and warn people at home that you may be unreachable for a while."},
+
+    {q:"¿Cómo os aviso o pregunto algo?", k:"contacto whatsapp confirmar rsvp avisar telefono dudas",
+     a:"Escríbenos por WhatsApp a Iván o a Laura. Preferimos que preguntes a que te quedes con la duda.", to:"#contacto",
+     qe:"How do I reach you?", ae:"Message Iván or Laura on WhatsApp. We would much rather you asked than wondered."}
+  ];
+
+  var WA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>';
+  var askQ = document.getElementById("ask-q");
+  var askOut = document.getElementById("ask-out");
+  var askChips = document.getElementById("ask-chips");
+  var CHIP_IDX = [0, 3, 6, 9, 13, 17];
+
+  var STOP = ("que como donde cuando cual cuanto cuantos para por con los las una unos unas del hay mas muy esta este esto tengo puedo puede quiero hacer sobre desde entre pero solo todo toda ellos ellas nos nosotros vosotros " +
+              "the what where when how which can should could would and for with are you your there their have has any about from into some more").split(" ");
+  function norm(t){
+    return (t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s]/g, " ");
+  }
+  function hasWord(hay, w){
+    return new RegExp("\\b" + w + "\\b").test(hay);
+  }
+  function askText(item, en){
+    return { q: en ? item.qe : item.q, a: en ? item.ae : item.a };
+  }
+  function renderAsk(){
+    if (!askOut) return;
+    var en = document.documentElement.lang === "en";
+    var raw = askQ && askQ.value ? askQ.value : "";
+    var words = norm(raw).split(/\s+/).filter(function(w){
+      return w.length > 2 && STOP.indexOf(w) === -1;
+    });
+
+    if (!words.length) { askOut.innerHTML = ""; return; }  // al arrancar, ninguna desplegada
+
+    var list;
+    {
+      var scored = FAQ.map(function(item){
+        var hay = norm(item.q + " " + item.a + " " + item.k + " " + item.qe + " " + item.ae);
+        var score = 0;
+        words.forEach(function(w){ if (hasWord(hay, w)) score++; });
+        return { item: item, score: score };
+      }).filter(function(x){ return x.score > 0; });
+      scored.sort(function(a, b){ return b.score - a.score; });
+      list = scored.slice(0, 4).map(function(x){ return x.item; });
+    }
+
+    if (!list.length) {
+      askOut.innerHTML = '<div class="faq-none"><p>' +
+        (en ? "We have not written that one down. Ask us directly and we will answer:"
+            : "Esa no la tenemos escrita. Pregúntanos directamente y te contestamos:") +
+        '</p><div class="btns">' +
+        '<a class="btn ghost" href="https://wa.me/34650025176" target="_blank" rel="noopener">' + WA_ICON + '<span>' + (en ? "Message Iván" : "Escribir a Iván") + '</span></a>' +
+        '<a class="btn ghost" href="https://wa.me/34617522337" target="_blank" rel="noopener">' + WA_ICON + '<span>' + (en ? "Message Laura" : "Escribir a Laura") + '</span></a>' +
+        '</div></div>';
+      return;
+    }
+
+    var html = "";
+    list.forEach(function(item){
+      var t = askText(item, en);
+      html += '<div class="faq"><b class="q">' + t.q + '</b><p>' + t.a + '</p>';
+      if (item.to) html += '<a class="go" href="' + item.to + '">' + (en ? "Go to the section" : "Ir a la sección") + '</a>';
+      html += '</div>';
+    });
+    askOut.innerHTML = html;
+  }
+  function renderChips(){
+    if (!askChips) return;
+    var en = document.documentElement.lang === "en";
+    askChips.innerHTML = "";
+    CHIP_IDX.forEach(function(i){
+      var t = askText(FAQ[i], en);
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = t.q;
+      b.addEventListener("click", function(){
+        if (askQ) { askQ.value = t.q; renderAsk(); askQ.focus(); }
+      });
+      askChips.appendChild(b);
+    });
+  }
+  if (askQ) askQ.addEventListener("input", renderAsk);
+  renderChips();
+  renderAsk();
 
   // ---- Glosario -----------------------------------------------------------
   // [EDITAR-GLOSARIO] para añadir o quitar palabras, edita estas dos listas.
