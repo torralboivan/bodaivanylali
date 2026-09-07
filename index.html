@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="description" content="Boda de Ivan y Lali: viernes 27 de noviembre de 2026 en Casa Lumm, Palomino (La Guajira, Colombia). Itinerario del viaje, glosario, vuelos recomendados, codigo de vestimenta e informacion practica.">
+<meta name="description" content="Boda de Ivan y Lali: viernes 27 de noviembre de 2026 en Casa Lumm, Palomino (La Guajira, Colombia). Itinerario del viaje, glosario, guia de Colombia, vuelos recomendados y codigo de vestimenta.">
 <meta name="theme-color" content="#F1F3EC">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ivan & Lali en Palomino">
@@ -159,8 +159,16 @@
   .city .pay{font-size:.82rem;padding-top:.7rem;border-top:1px solid var(--line);color:var(--ink)}
 
   /* packing */
-  .items{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
-  .items span{background:var(--ground);padding:.9rem 1rem;font-size:.9rem;color:var(--ink)}
+  .pack-note{color:var(--muted);font-size:.9rem;margin-bottom:1rem;max-width:60ch}
+  .items{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .items .item{background:var(--ground);padding:.85rem 1rem;font-size:.9rem;color:var(--ink);display:flex;align-items:center;gap:.65rem;cursor:pointer}
+  .items .item:hover{background:var(--surface)}
+  .items .item input{accent-color:var(--accent);width:1.05rem;height:1.05rem;flex:none;cursor:pointer;margin:0}
+  .items .item input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+  .pack-bar{display:flex;align-items:center;gap:1rem;margin-top:.9rem}
+  .pack-n{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .pack-bar button{font-family:var(--body);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:none;border:none;color:var(--accent);cursor:pointer;padding:.2rem 0;border-bottom:1px solid transparent}
+  .pack-bar button:hover{border-bottom-color:var(--accent)}
 
   /* swatches */
   .swatches{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
@@ -255,10 +263,10 @@
     <nav class="nav">
       <a href="#viaje" data-i18n="nav1">El viaje</a>
       <a href="#glosario" data-i18n="nav7">Glosario</a>
+      <a href="#colombia" data-i18n="nav5">Colombia</a>
       <a href="#vuelos" data-i18n="nav2">Vuelos</a>
       <a href="#naio" data-i18n="nav3">Alojamiento</a>
       <a href="#vestimenta" data-i18n="nav4">Vestimenta</a>
-      <a href="#colombia" data-i18n="nav5">Colombia</a>
       <a href="#contacto" data-i18n="nav6">Contacto</a>
     </nav>
     <div class="lang">
@@ -374,6 +382,96 @@
       <div class="glos" id="glos-en" data-block="en" hidden></div>
 
       <p class="glos-empty" id="glos-empty" hidden data-i18n="glosEmpty">Ninguna entrada se le parece.</p>
+    </div>
+  </section>
+
+  <!-- COLOMBIA -->
+  <section id="colombia">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-i18n="k5">Las tres ciudades</span>
+        <h2 data-i18n="h5">Qué te vas a encontrar</h2>
+        <p data-i18n="p5">Temperaturas de noviembre, cómo se paga en cada sitio y lo que conviene tener en la cabeza.</p>
+      </div>
+
+      <div class="grid g3">
+        <div class="city">
+          <h3>Bogotá</h3>
+          <p class="temp">6 – 19 °C</p>
+          <p class="cl" data-i18n="ci1">Clima fresco. Puede llover por las tardes.</p>
+          <ul>
+            <li data-i18n="ci1a">Evita coger taxi en la calle, caminar con el móvil en la mano y caminar de noche.</li>
+            <li data-i18n="ci1b">Consulta los sitios antes de ir para moverte con criterio.</li>
+            <li data-i18n="ci1c">Es una ciudad grande: como en toda ciudad grande, conviene saber por dónde te mueves.</li>
+          </ul>
+          <p class="pay" data-i18n="ci1p">Tarjeta de crédito y efectivo.</p>
+        </div>
+
+        <div class="city">
+          <h3>Medellín</h3>
+          <p class="temp">17 – 27 °C</p>
+          <p class="cl" data-i18n="ci2">Clima templado y agradable durante el día.</p>
+          <ul>
+            <li data-i18n="ci2a">Evita el taxi en la calle; pide recomendaciones.</li>
+            <li data-i18n="ci2b">Ciudad tranquila de día, y la mayoría de zonas también de noche.</li>
+          </ul>
+          <p class="pay" data-i18n="ci2p">Tarjeta de crédito y efectivo.</p>
+        </div>
+
+        <div class="city">
+          <h3>Palomino</h3>
+          <p class="temp">28 – 35 °C</p>
+          <p class="cl" data-i18n="ci3">Clima cálido y húmedo, en torno al 80 % de humedad.</p>
+          <ul>
+            <li data-i18n="ci3a">Estaremos en el hotel y en la zona de la boda, haciendo actividades juntos.</li>
+            <li data-i18n="ci3b">La zona es tranquila, pero pide recomendaciones si quieres hacer algo por tu cuenta.</li>
+          </ul>
+          <p class="pay" data-i18n="ci3p">Mejor efectivo: fuera del hotel es difícil pagar con tarjeta.</p>
+        </div>
+      </div>
+
+      <h3 class="sub" data-i18n="s5">Qué llevar</h3>
+      <p class="pack-note" data-i18n="packNote">Marca las casillas mientras haces la maleta. Es solo para ti: no se envía a ningún sitio y se queda guardado en tu propio móvil.</p>
+      <div class="items">
+        <label class="item"><input type="checkbox" data-pack="q1"><span data-i18n="q1">Ropa ligera y cómoda</span></label>
+        <label class="item"><input type="checkbox" data-pack="q2"><span data-i18n="q2">Trajes de baño</span></label>
+        <label class="item"><input type="checkbox" data-pack="q3"><span data-i18n="q3">Sandalias o calzado cómodo</span></label>
+        <label class="item"><input type="checkbox" data-pack="q4"><span data-i18n="q4">Protector solar</span></label>
+        <label class="item"><input type="checkbox" data-pack="q5"><span data-i18n="q5">Repelente de insectos</span></label>
+        <label class="item"><input type="checkbox" data-pack="q6"><span data-i18n="q6">Gafas de sol</span></label>
+        <label class="item"><input type="checkbox" data-pack="q7"><span data-i18n="q7">Sombrero o gorra</span></label>
+        <label class="item"><input type="checkbox" data-pack="q8"><span data-i18n="q8">Chaqueta ligera para la lluvia</span></label>
+        <label class="item"><input type="checkbox" data-pack="q9"><span data-i18n="q9">Efectivo para gastos</span></label>
+      </div>
+      <div class="pack-bar"><span class="pack-n" id="pack-n"></span><button type="button" id="pack-reset" data-i18n="packReset">Empezar de cero</button></div>
+
+      <h3 class="sub" data-i18n="s6">Antes de salir de casa</h3>
+      <dl class="facts">
+        <div class="fact">
+          <dt data-i18n="f1t">Check-Mig</dt>
+          <dd data-i18n="f1d">Registro migratorio online y obligatorio, tanto para entrar como para salir. Se rellena en los días previos a cada vuelo en la web de Migración Colombia. Es gratis y tarda cinco minutos: guarda el correo de confirmación y desconfía de webs que cobren por hacerlo.</dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f2t">Documentación</dt>
+          <dd data-i18n="f2d">Pasaporte en vigor con margen holgado de validez. Los ciudadanos españoles no necesitan visado para una estancia turística; pueden pedirte billete de salida y prueba de alojamiento. <em>Comprueba tu caso si tienes otra nacionalidad.</em></dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f3t">Salud</dt>
+          <dd data-i18n="f3d">No hay vacunas obligatorias para entrar, pero para la costa Caribe suele recomendarse la de la fiebre amarilla, que se pone con al menos diez días de antelación. Consúltalo en tu centro de vacunación internacional y contrata un seguro de viaje.</dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f4t">Dinero</dt>
+          <dd data-i18n="f4d">Peso colombiano (COP). En Palomino hay pocos cajeros y muchos sitios son solo efectivo: saca pesos en el aeropuerto o en Santa Marta antes de subir.</dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f5t">Enchufes</dt>
+          <dd data-i18n="f5d">Colombia funciona a 110 V con enchufe de tipo americano (clavijas planas). Trae adaptador.</dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="f6t">Cobertura</dt>
+          <dd data-i18n="f6d">En Palomino la señal es irregular. Descárgate los mapas sin conexión y avisa en casa de que puedes estar ilocalizable un rato.</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
@@ -500,94 +598,6 @@
           <p data-i18n="w7">El código de vestimenta del asado se actualizará en los próximos días. De momento, cuenta con bañador, algo fresco y cero formalidad.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- COLOMBIA -->
-  <section id="colombia">
-    <div class="wrap">
-      <div class="head">
-        <span class="kicker" data-i18n="k5">Las tres ciudades</span>
-        <h2 data-i18n="h5">Qué te vas a encontrar</h2>
-        <p data-i18n="p5">Temperaturas de noviembre, cómo se paga en cada sitio y lo que conviene tener en la cabeza.</p>
-      </div>
-
-      <div class="grid g3">
-        <div class="city">
-          <h3>Bogotá</h3>
-          <p class="temp">6 – 19 °C</p>
-          <p class="cl" data-i18n="ci1">Clima fresco. Puede llover por las tardes.</p>
-          <ul>
-            <li data-i18n="ci1a">Evita coger taxi en la calle, caminar con el móvil en la mano y caminar de noche.</li>
-            <li data-i18n="ci1b">Consulta los sitios antes de ir para moverte con criterio.</li>
-            <li data-i18n="ci1c">Es una ciudad grande: como en toda ciudad grande, conviene saber por dónde te mueves.</li>
-          </ul>
-          <p class="pay" data-i18n="ci1p">Tarjeta de crédito y efectivo.</p>
-        </div>
-
-        <div class="city">
-          <h3>Medellín</h3>
-          <p class="temp">17 – 27 °C</p>
-          <p class="cl" data-i18n="ci2">Clima templado y agradable durante el día.</p>
-          <ul>
-            <li data-i18n="ci2a">Evita el taxi en la calle; pide recomendaciones.</li>
-            <li data-i18n="ci2b">Ciudad tranquila de día, y la mayoría de zonas también de noche.</li>
-          </ul>
-          <p class="pay" data-i18n="ci2p">Tarjeta de crédito y efectivo.</p>
-        </div>
-
-        <div class="city">
-          <h3>Palomino</h3>
-          <p class="temp">28 – 35 °C</p>
-          <p class="cl" data-i18n="ci3">Clima cálido y húmedo, en torno al 80 % de humedad.</p>
-          <ul>
-            <li data-i18n="ci3a">Estaremos en el hotel y en la zona de la boda, haciendo actividades juntos.</li>
-            <li data-i18n="ci3b">La zona es tranquila, pero pide recomendaciones si quieres hacer algo por tu cuenta.</li>
-          </ul>
-          <p class="pay" data-i18n="ci3p">Mejor efectivo: fuera del hotel es difícil pagar con tarjeta.</p>
-        </div>
-      </div>
-
-      <h3 class="sub" data-i18n="s5">Qué llevar</h3>
-      <div class="items">
-        <span data-i18n="q1">Ropa ligera y cómoda</span>
-        <span data-i18n="q2">Trajes de baño</span>
-        <span data-i18n="q3">Sandalias o calzado cómodo</span>
-        <span data-i18n="q4">Protector solar</span>
-        <span data-i18n="q5">Repelente de insectos</span>
-        <span data-i18n="q6">Gafas de sol</span>
-        <span data-i18n="q7">Sombrero o gorra</span>
-        <span data-i18n="q8">Chaqueta ligera para la lluvia</span>
-        <span data-i18n="q9">Efectivo para gastos</span>
-      </div>
-
-      <h3 class="sub" data-i18n="s6">Antes de salir de casa</h3>
-      <dl class="facts">
-        <div class="fact">
-          <dt data-i18n="f1t">Check-Mig</dt>
-          <dd data-i18n="f1d">Registro migratorio online y obligatorio, tanto para entrar como para salir. Se rellena en los días previos a cada vuelo en la web de Migración Colombia. Es gratis y tarda cinco minutos: guarda el correo de confirmación y desconfía de webs que cobren por hacerlo.</dd>
-        </div>
-        <div class="fact">
-          <dt data-i18n="f2t">Documentación</dt>
-          <dd data-i18n="f2d">Pasaporte en vigor con margen holgado de validez. Los ciudadanos españoles no necesitan visado para una estancia turística; pueden pedirte billete de salida y prueba de alojamiento. <em>Comprueba tu caso si tienes otra nacionalidad.</em></dd>
-        </div>
-        <div class="fact">
-          <dt data-i18n="f3t">Salud</dt>
-          <dd data-i18n="f3d">No hay vacunas obligatorias para entrar, pero para la costa Caribe suele recomendarse la de la fiebre amarilla, que se pone con al menos diez días de antelación. Consúltalo en tu centro de vacunación internacional y contrata un seguro de viaje.</dd>
-        </div>
-        <div class="fact">
-          <dt data-i18n="f4t">Dinero</dt>
-          <dd data-i18n="f4d">Peso colombiano (COP). En Palomino hay pocos cajeros y muchos sitios son solo efectivo: saca pesos en el aeropuerto o en Santa Marta antes de subir.</dd>
-        </div>
-        <div class="fact">
-          <dt data-i18n="f5t">Enchufes</dt>
-          <dd data-i18n="f5d">Colombia funciona a 110 V con enchufe de tipo americano (clavijas planas). Trae adaptador.</dd>
-        </div>
-        <div class="fact">
-          <dt data-i18n="f6t">Cobertura</dt>
-          <dd data-i18n="f6d">En Palomino la señal es irregular. Descárgate los mapas sin conexión y avisa en casa de que puedes estar ilocalizable un rato.</dd>
-        </div>
-      </dl>
     </div>
   </section>
 
@@ -732,6 +742,8 @@
     ci3b:"The area is calm, but ask for recommendations if you want to go off on your own.",
     ci3p:"Cash is better: outside the hotel it's hard to pay by card.",
     s5:"What to bring",
+    packNote:"Tick things off as you pack. It is just for you: nothing is sent anywhere and it stays on your own phone.",
+    packReset:"Start over",
     q1:"Light, comfortable clothes", q2:"Swimwear", q3:"Sandals or comfortable shoes",
     q4:"Sunscreen", q5:"Insect repellent", q6:"Sunglasses", q7:"Hat or cap",
     q8:"Light rain jacket", q9:"Cash for expenses",
@@ -799,6 +811,7 @@
     buttons.forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang)); });
     try { localStorage.setItem("boda-lang", lang); } catch(e){}
     renderGlos();
+    packCount();
   }
   buttons.forEach(function(b){
     b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
@@ -918,6 +931,39 @@
   });
   if (glosQ) glosQ.addEventListener("input", renderGlos);
   renderGlos();
+
+  // ---- Lista de equipaje: casillas que solo viven en el móvil de cada invitado ----
+  var packBoxes = document.querySelectorAll("[data-pack]");
+  var packN = document.getElementById("pack-n");
+  var packReset = document.getElementById("pack-reset");
+
+  function packCount(){
+    if (!packN || !packBoxes || !packBoxes.length) return;
+    var n = 0;
+    packBoxes.forEach(function(b){ if (b.checked) n++; });
+    packN.textContent = document.documentElement.lang === "en"
+      ? n + " of " + packBoxes.length + " packed"
+      : n + " de " + packBoxes.length + " en la maleta";
+  }
+  function packSave(){
+    try {
+      var o = {};
+      packBoxes.forEach(function(b){ if (b.checked) o[b.getAttribute("data-pack")] = 1; });
+      localStorage.setItem("boda-pack", JSON.stringify(o));
+    } catch(e){}
+  }
+  try {
+    var packSaved = JSON.parse(localStorage.getItem("boda-pack") || "{}");
+    packBoxes.forEach(function(b){ if (packSaved[b.getAttribute("data-pack")]) b.checked = true; });
+  } catch(e){}
+  packBoxes.forEach(function(b){
+    b.addEventListener("change", function(){ packSave(); packCount(); });
+  });
+  if (packReset) packReset.addEventListener("click", function(){
+    packBoxes.forEach(function(b){ b.checked = false; });
+    packSave(); packCount();
+  });
+  packCount();
 
   // [EDITAR-FECHA] fecha y hora de la ceremonia, en hora de Colombia (-05:00)
   var target = new Date("2026-11-27T16:00:00-05:00").getTime();
