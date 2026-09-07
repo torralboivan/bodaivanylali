@@ -1,0 +1,11 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "globalHeaders": {
+    "cache-control": "public, max-age=600, must-revalidate"
+  },
+  "mimeTypes": {
+    ".json": "application/json"
+  }
+}
