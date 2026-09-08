@@ -77,6 +77,35 @@
   .count b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,6vw,2.7rem);line-height:1;font-variant-numeric:tabular-nums}
   .count span{display:block;margin-top:.5rem;font-size:.64rem;letter-spacing:.19em;text-transform:uppercase;color:var(--muted)}
 
+  /* tira de fotos */
+  .strip{margin-top:2.6rem}
+  .strip-track{
+    display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x proximity;
+    padding:1.2rem .2rem 0;scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .strip-track::-webkit-scrollbar{display:none}
+  .shot{flex:0 0 62%;scroll-snap-align:center;margin:0;text-align:left}
+  .shot img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:3px;
+    background:var(--surface);box-shadow:0 1px 10px rgba(20,36,28,.10);
+  }
+  .shot figcaption{
+    margin-top:.7rem;font-family:var(--display);font-style:italic;font-size:.95rem;
+    color:var(--muted);line-height:1.3;
+  }
+  .shot figcaption:empty{display:none}
+  .shot:nth-child(even){margin-top:1.5rem}
+  @media (min-width:760px){
+    .strip-track{gap:1.3rem;padding-bottom:.4rem}
+    .shot{flex:0 0 200px}
+    .shot:nth-child(5n+1){transform:rotate(-1.4deg)}
+    .shot:nth-child(5n+2){transform:rotate(1.1deg)}
+    .shot:nth-child(5n+3){transform:rotate(-.6deg)}
+    .shot:nth-child(5n+4){transform:rotate(1.6deg)}
+    .shot:nth-child(5n+5){transform:rotate(-1.1deg)}
+  }
+  @media (prefers-reduced-motion:reduce){ .shot{transform:none!important} }
+
   /* legs strip */
   .legs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:2.8rem}
   .leg{background:var(--ground);padding:1.15rem .8rem;text-align:center}
@@ -320,6 +349,7 @@
   Revisalos antes de mandar la web y otra vez cerca del viaje.
 
   MARCAS UTILES (Ctrl+F):
+    [EDITAR-FOTOS]      la tira de fotos de la portada
     [EDITAR-PREGUNTAS]  respuestas rapidas del buscador
     [EDITAR-GLOSARIO]   las tres listas del glosario
     [EDITAR-GRUPO]      enlace del grupo de WhatsApp
@@ -374,6 +404,22 @@
       <div><b id="cd-h">—</b><span data-i18n="cdH">Horas</span></div>
       <div><b id="cd-m">—</b><span data-i18n="cdM">Minutos</span></div>
       <div><b id="cd-s">—</b><span data-i18n="cdS">Segundos</span></div>
+    </div>
+
+    <!-- [EDITAR-FOTOS] las imágenes están en la carpeta "fotos" (1.jpg … 5.jpg).
+         Para cambiar una, sube otra con el mismo nombre. Si falta alguna, no se muestra;
+         si no hay ninguna, esta tira desaparece. Los pies se editan aquí mismo. -->
+    <div class="strip" id="photos" hidden>
+      <div class="strip-track" id="photo-track">
+        <figure class="shot"><img src="fotos/1.jpg" alt="" fetchpriority="high"><figcaption data-i18n="cap1">Puentes colgantes, nuestra idea de un plan tranquilo</figcaption></figure>
+        <figure class="shot"><img src="fotos/2.jpg" alt="" fetchpriority="high"><figcaption data-i18n="cap2">La KTM, cargada y sin destino fijo</figcaption></figure>
+        <figure class="shot"><img src="fotos/3.jpg" alt=""><figcaption data-i18n="cap3">Yankee Stadium</figcaption></figure>
+        <figure class="shot"><img src="fotos/4.jpg" alt=""><figcaption data-i18n="cap4">Un día de tabla</figcaption></figure>
+        <figure class="shot"><img src="fotos/5.jpg" alt=""><figcaption data-i18n="cap5">Un domingo cualquiera</figcaption></figure>
+        <figure class="shot"><img src="fotos/6.jpg" alt=""><figcaption data-i18n="cap6">Baja California, durmiendo en el techo del coche</figcaption></figure>
+        <figure class="shot"><img src="fotos/7.jpg" alt=""><figcaption data-i18n="cap7">Bici de montaña, con nieve y sin plan</figcaption></figure>
+        <figure class="shot"><img src="fotos/8.jpg" alt=""><figcaption data-i18n="cap8">Día de circuito</figcaption></figure>
+        <figure class="shot"><img src="fotos/9.jpg" alt=""><figcaption data-i18n="cap9">Y a veces, un Burger King</figcaption></figure>
     </div>
 
     <div class="legs">
@@ -834,6 +880,16 @@
     cdD:"Days", cdH:"Hours", cdM:"Minutes", cdS:"Seconds",
     leg1:"Bogotá", leg2:"Medellín", leg3:"Palomino",
 
+    cap1:"Suspension bridges, our idea of a quiet afternoon",
+    cap2:"The KTM, loaded up and going nowhere in particular",
+    cap3:"Yankee Stadium",
+    cap4:"A day on the board",
+    cap5:"A regular Sunday",
+    cap6:"Baja California, sleeping on the roof of the truck",
+    cap7:"Mountain biking, in the snow, with no plan",
+    cap8:"A day at the track",
+    cap9:"And sometimes, a Burger King",
+
     kA:"Quick answers",
     hA:"Ask anything",
     pA:"Type your question however it comes out — “what should I wear?”, “do I need a visa?”, “summary” — and we will take you to the answer. If it is not here, write to us and we will reply ourselves.",
@@ -1105,6 +1161,23 @@
      a:"Escríbenos por WhatsApp a Iván o a Laura. Preferimos que preguntes a que te quedes con la duda.", to:"#contacto",
      qe:"How do I reach you?", ae:"Message Iván or Laura on WhatsApp. We would much rather you asked than wondered."}
   ];
+
+  // ---- Tira de fotos de la portada ----
+  var phWrap = document.getElementById("photos");
+  var phTrack = document.getElementById("photo-track");
+  if (phWrap && phTrack) {
+    function phRefresh(){
+      phWrap.hidden = phTrack.querySelectorAll(".shot").length === 0;
+    }
+    phTrack.querySelectorAll(".shot").forEach(function(fig){
+      var img = fig.querySelector("img");
+      function bad(){ fig.remove(); phRefresh(); }
+      // la imagen puede haberse resuelto antes de llegar aquí
+      if (img.complete) { if (img.naturalWidth === 0) bad(); }
+      else { img.addEventListener("error", bad); }
+    });
+    phRefresh();
+  }
 
   // ---- Slider de "tres maneras de venir" ----
   var wTrack = document.getElementById("ways-track");
